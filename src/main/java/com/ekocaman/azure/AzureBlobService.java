@@ -34,7 +34,7 @@ public class AzureBlobService {
         final SharedKeyCredentials credentials = new SharedKeyCredentials(accountName, accountKey);
 
         final AccountSASSignatureValues values = new AccountSASSignatureValues();
-        values.withProtocol(SASProtocol.HTTPS_HTTP).withExpiryTime(OffsetDateTime.now().plusDays(2));
+        values.withProtocol(SASProtocol.HTTPS_HTTP).withExpiryTime(OffsetDateTime.now().plusMinutes(1));
 
         final AccountSASPermission permission = new AccountSASPermission().withRead(true).withWrite(true);
         values.withPermissions(permission.toString());

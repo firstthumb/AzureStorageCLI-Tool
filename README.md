@@ -14,11 +14,17 @@ mvn clean install
 
 ```bash
 
-# prints SAS Token
+# prints SAS Token ( 1 min valid )
 java com.ekocaman.azure.AzureStorageCLI generateSAS -n {ACCOUNT_NAME} -k {ACCOUNT_KEY} -c {CONTAINER_NAME} -p {REMOTE_FILE_PATH}
 
 # uploads local file to Azure Storage with SAS Token
 java com.ekocaman.azure.AzureStorageCLI uploadWithSAS -n {ACCOUNT_NAME} -t {SAS_TOKEN} -c {CONTAINER_NAME} -f {LOCAL_FILE_PATH}
+
+# uploads local file to Azure Storage with Account Key
+java com.ekocaman.azure.AzureStorageCLI upload -n {ACCOUNT_NAME} -k {ACCOUNT_KEY} -c {CONTAINER_NAME} -f {LOCAL_FILE_PATH}
+
+# prints URL ( 1 min valid )
+java com.ekocaman.azure.AzureStorageCLI generateURL -n {ACCOUNT_NAME} -k {ACCOUNT_KEY} -c {CONTAINER_NAME} -p {REMOTE_FILE_PATH}
 
 ```
 
